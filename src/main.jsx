@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Weather />,
+        element: <Weather hasSe />,
       },
       {
         path: 'weather',
