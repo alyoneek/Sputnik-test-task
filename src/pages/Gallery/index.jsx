@@ -1,5 +1,6 @@
 import React from 'react';
-import axios from 'axios';
+
+import api from '@/api/unsplash';
 
 import { SearchContext } from '@/layouts/RootLayout';
 
@@ -12,43 +13,36 @@ const Gallery = () => {
   const [isSearching, setIsSearching] = React.useState(false);
 
   React.useEffect(() => {
+    const fetchRandomPhoto = async () => {
+      const response = await api.get('/photos/random');
+      setPlaceholder(response.data.urls.full);
+    };
     if (!placeholder) {
-      axios
-        .get(
-          'https://api.unsplash.com/photos/random?client_id=goEq54-9yZx1WAKleCxXEyEzg4t_UBTDwxUwBQdbb5E'
-        )
-        .then((response) => {
-          setPlaceholder(response.data.urls.full);
-        });
+      fetchRandomPhoto();
     }
   }, []);
 
   React.useEffect(() => {
     // search  = ''
-    if (searchValue || isSearching) {
-      setIsSearching(true);
+    const fetchCollection = async () => {
       try {
-        axios
-          .get(
-            `https://api.unsplash.com/collections/${searchValue}/?client_id=goEq54-9yZx1WAKleCxXEyEzg4t_UBTDwxUwBQdbb5E`
+        const responseCollection = await api.get(`/collections/${searchValue}`);
+        const responsePhotos = await api.get(
+          responseCollection.data.links.photos.substring(
+            api.defaults.baseURL.length
           )
-          .then((response) => {
-            axios
-              .get(
-                response.data.links.photos +
-                  '?client_id=goEq54-9yZx1WAKleCxXEyEzg4t_UBTDwxUwBQdbb5E'
-              )
-              .then((response) => {
-                setCollection(response.data);
-              });
-          });
+        );
+        setCollection(responsePhotos.data);
       } catch (e) {
         setCollection(null);
       }
+    };
+
+    if (searchValue || isSearching) {
+      setIsSearching(true);
+      fetchCollection();
     }
   }, [searchValue]);
-
-  console.log(collection);
 
   return !isSearching ? (
     <div className={styles.placeholder}>
