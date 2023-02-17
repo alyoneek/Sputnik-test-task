@@ -9,6 +9,8 @@ const Gallery = () => {
   //const [collection, setCollection] = React.useState(null);
   const [isSearching, setIsSearching] = React.useState(false);
 
+  console.log(searchValue);
+
   React.useEffect(() => {
     if (!placeholder) {
       axios

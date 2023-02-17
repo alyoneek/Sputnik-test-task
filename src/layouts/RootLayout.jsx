@@ -7,6 +7,7 @@ export const SearchContext = React.createContext('');
 
 const RootLayout = () => {
   const [searchValue, setSearchValue] = React.useState('');
+
   return (
     <SearchContext.Provider value={{ searchValue, setSearchValue }}>
       <Header />

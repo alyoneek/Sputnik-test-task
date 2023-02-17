@@ -6,19 +6,32 @@ import styles from './Search.module.scss';
 import { SearchContext } from '@/layouts/RootLayout';
 
 const Search = () => {
-  const { searchValue, setSearchValue } = React.useContext(SearchContext);
+  const { setSearchValue } = React.useContext(SearchContext);
+  const [currentValue, setCurrentValue] = React.useState('');
+
+  const handleEnterPress = (e) => {
+    if (e.key === 'Enter') {
+      setSearchValue(currentValue);
+    }
+  };
+
   return (
     <div className={styles.search}>
-      <AiOutlineSearch className={styles.search_icon} />
+      <AiOutlineSearch
+        className={styles.search_icon}
+        onClick={() => setSearchValue(currentValue)}
+      />
       <input
         type='text'
-        value={searchValue}
-        onChange={(e) => setSearchValue(e.target.value)}
+        placeholder='Search a collection'
+        value={currentValue}
+        onChange={(e) => setCurrentValue(e.target.value)}
+        onKeyDown={handleEnterPress}
       />
-      {searchValue && (
+      {currentValue && (
         <AiOutlineClose
           className={styles.close_icon}
-          onClick={() => setSearchValue('')}
+          onClick={() => setCurrentValue('')}
         />
       )}
     </div>
