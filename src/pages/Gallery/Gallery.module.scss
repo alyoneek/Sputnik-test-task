@@ -26,3 +26,45 @@
     }
   }
 }
+
+.photos_container {
+  max-width: 1500px;
+  padding: 20px;
+  margin: 0 auto;
+  .collection_title {
+    margin-bottom: 20px;
+  }
+  .photos {
+    column-width: 300px;
+    column-gap: 20px;
+    .photo_card {
+      width: 100%;
+      margin-bottom: 20px;
+      background-color: #f6f6f6;
+      border-radius: 10px;
+      break-inside: avoid;
+      cursor: pointer;
+      img {
+        width: 100%;
+        border-radius: 10px;
+        transition: 0.25s;
+        &:hover {
+          transform: scale(0.95);
+        }
+      }
+      .description {
+        padding: 15px 10px;
+        .name {
+          margin-bottom: 40px;
+          display: -webkit-box;
+          overflow: hidden;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+        }
+        .author {
+          font-style: italic;
+        }
+      }
+    }
+  }
+}

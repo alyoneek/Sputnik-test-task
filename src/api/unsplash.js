@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const CLIENT_ID = 'Hzx0domOO9BBzKo8Eg-kBPDdSm6WIhGIh5g39dP6qc4';
+const CLIENT_ID = 'GvDg08-YzcoNm8tdYAt1-O70SvyUmhBlTNShShwZ5tg';
 
 export default axios.create({
   baseURL: 'https://api.unsplash.com',
