@@ -7,7 +7,6 @@ import RootLayout from '@/layouts/RootLayout';
 import Error from '@/pages/Error';
 import Gallery from '@/pages/Gallery';
 import Weather from '@/pages/Weather';
-import Collection from '@/pages/Collection';
 
 const router = createBrowserRouter([
   {
@@ -17,7 +16,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Weather hasSe />,
+        element: <Weather />,
       },
       {
         path: 'weather',
@@ -26,10 +25,6 @@ const router = createBrowserRouter([
       {
         path: 'gallery',
         element: <Gallery />,
-      },
-      {
-        path: 'gallery/:collectionId',
-        element: <Collection />,
       },
     ],
   },

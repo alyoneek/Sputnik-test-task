@@ -3,7 +3,10 @@ import React from 'react';
 import api from '@/api/unsplash';
 import { SearchContext } from '@/layouts/RootLayout';
 import styles from './Gallery.module.scss';
-import NotFound from '@/assets/not-found.png';
+import Placeholder from '@/components/Gallery/Placeholder';
+import FluidGridLayout from '@/layouts/FluidGridLayout';
+import Card from '@/components/Gallery/Card';
+import NotFound from '@/components/ui/NotFound';
 
 const Gallery = () => {
   const { searchValue } = React.useContext(SearchContext);
@@ -46,43 +49,18 @@ const Gallery = () => {
   }, [searchValue]);
 
   return !isSearching ? (
-    placeholder && (
-      <div className={styles.placeholder}>
-        <img
-          src={placeholder.urls.full}
-          alt={placeholder.alt_description}
-          className={styles.placeholder_image}
-        />
-        <div className={styles.placeholder_title}>
-          <h1>Gallery</h1>
-          <p>Search the pictures of a collection by its id.</p>
-          <p>More text.</p>
-        </div>
-      </div>
-    )
+    placeholder && <Placeholder data={placeholder} />
   ) : collectionPhotos ? (
     <div className={styles.photos_container}>
       <h1 className={styles.collection_title}>{collection.title}</h1>
-      <div className={styles.photos}>
+      <FluidGridLayout>
         {collectionPhotos.map((photo, i) => (
-          <div key={i}>
-            <div className={styles.photo_card}>
-              <img src={photo.urls.regular} alt={styles.alt_description} />
-              <div className={styles.description}>
-                <h3 className={styles.name}>
-                  {photo.description ? photo.description : 'Without name'}
-                </h3>
-                <p className={styles.author}>Created by {photo.user.name}</p>
-              </div>
-            </div>
-          </div>
+          <Card key={i} photo={photo} />
         ))}
-      </div>
+      </FluidGridLayout>
     </div>
   ) : (
-    <div className={styles.not_found_container}>
-      <img src={NotFound} alt='not_found' />
-    </div>
+    <NotFound />
   );
 };
 

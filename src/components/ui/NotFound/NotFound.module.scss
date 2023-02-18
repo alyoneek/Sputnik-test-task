@@ -1,0 +1,10 @@
+.not_found_container {
+  width: 100%;
+  height: calc(100% - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    max-width: 400px;
+  }
+}
