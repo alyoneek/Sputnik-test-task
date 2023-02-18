@@ -1,10 +1,9 @@
 import React from 'react';
 
 import api from '@/api/unsplash';
-
 import { SearchContext } from '@/layouts/RootLayout';
-
 import styles from './Gallery.module.scss';
+import NotFound from '@/assets/not-found.png';
 
 const Gallery = () => {
   const { searchValue } = React.useContext(SearchContext);
@@ -81,7 +80,9 @@ const Gallery = () => {
       </div>
     </div>
   ) : (
-    <div>not found</div>
+    <div className={styles.not_found_container}>
+      <img src={NotFound} alt='not_found' />
+    </div>
   );
 };
 
