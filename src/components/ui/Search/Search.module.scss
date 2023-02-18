@@ -1,0 +1,25 @@
+.search {
+  position: relative;
+  .close_icon {
+    position: absolute;
+    font-size: 20px;
+    right: 15px;
+    top: 12px;
+    cursor: pointer;
+  }
+  &_icon {
+    @extend .close_icon;
+    left: 15px;
+  }
+  input {
+    width: 100%;
+    padding: 15px 50px;
+    border-radius: 15px;
+    background-color: #f1f0f0;
+    border: none;
+    &:focus {
+      outline: none;
+      border: #000000;
+    }
+  }
+}

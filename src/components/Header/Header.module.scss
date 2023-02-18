@@ -1,0 +1,56 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  &:hover {
+    box-shadow: -4px -3px 20px #cfcfcf;
+  }
+  &_logo {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  .search_input {
+    width: 50%;
+  }
+
+  .nav_items {
+    display: flex;
+    gap: 30px;
+    a {
+      font-size: 1.05rem;
+      position: relative;
+      transition: cubic-bezier(0.77, 0, 0.18, 1) 0.5s;
+      &:after {
+        content: '';
+        display: block;
+        width: 0;
+        position: absolute;
+        top: 110%;
+        left: 50%;
+        height: 3px;
+        border-radius: 50px;
+        background: #d7ad4f;
+        transition: cubic-bezier(0.77, 0, 0.18, 1) 0.5s;
+      }
+
+      @mixin displaySelection {
+        width: 60%;
+        left: 20%;
+      }
+
+      &:hover::after {
+        @include displaySelection();
+      }
+
+      &:global(.active)::after {
+        @include displaySelection();
+      }
+    }
+  }
+}
