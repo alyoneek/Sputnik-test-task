@@ -1,7 +1,8 @@
 import React from 'react';
-import axios from 'axios';
 
+import api, { CLIENT_ID } from '@/api/openWeather';
 import CurrentWeather from '@/components/Weather/CurrentWeather';
+import CurrentLocation from '@/components/Weather/CurrentLocation';
 
 const Weather = () => {
   const [date, setDate] = React.useState(new Date());
@@ -25,15 +26,14 @@ const Weather = () => {
 
   React.useEffect(() => {
     const fetchWeather = async () => {
-      const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${locationCoords.lat}&lon=${locationCoords.lon}&units=metric&appid=6fb7b9e3b3bb770125b23d4b54457037`
+      const response = await api.get(
+        `/data/2.5/weather?lat=${locationCoords.lat}&lon=${locationCoords.lon}&units=metric&appid=${CLIENT_ID}`
       );
       setLocation({
         city: response.data.name,
         country: response.data.sys.country,
       });
       setWeather(response.data);
-      console.log(response.data);
     };
 
     locationCoords && fetchWeather();
@@ -48,7 +48,12 @@ const Weather = () => {
   //   </>
   // );
 
-  return weather && <CurrentWeather data={weather} />;
+  return (
+    <>
+      {weather && <CurrentWeather data={weather} />}
+      {location && <CurrentLocation locationData={location} dateData={date} />}
+    </>
+  );
 };
 
 export default Weather;
