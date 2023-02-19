@@ -18,7 +18,13 @@ const CurrentLocation = ({ locationData, dateData }) => {
         </div>
       </div>
       <div className={styles.date_time}>
-        <div className={styles.date}>{dateData.toDateString()}</div>
+        <div className={styles.date}>
+          {dateData.toLocaleDateString('en-us', {
+            weekday: 'long',
+            month: 'long',
+            day: 'numeric',
+          })}
+        </div>
         <div className={styles.time}>{dateData.toLocaleTimeString()}</div>
       </div>
     </div>

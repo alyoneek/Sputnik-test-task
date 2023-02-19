@@ -3,6 +3,7 @@ import React from 'react';
 import api, { CLIENT_ID } from '@/api/openWeather';
 import CurrentWeather from '@/components/Weather/CurrentWeather';
 import CurrentLocation from '@/components/Weather/CurrentLocation';
+import styles from './Weather.module.scss';
 
 const Weather = () => {
   const [date, setDate] = React.useState(new Date());
@@ -39,20 +40,15 @@ const Weather = () => {
     locationCoords && fetchWeather();
   }, [locationCoords]);
 
-  // return (
-  //   <>
-  //     <div>Monday 27</div> <div>July 20</div>
-  //     <div>Time: {date.toLocaleTimeString()}</div>
-  //     <div>Date: {date.toDateString()}</div>
-  //     <div>Location: Tomsk</div>
-  //   </>
-  // );
-
   return (
-    <>
-      {weather && <CurrentWeather data={weather} />}
-      {location && <CurrentLocation locationData={location} dateData={date} />}
-    </>
+    <div className={styles.weather_container}>
+      <div className={styles.weather}>
+        {weather && <CurrentWeather data={weather} />}
+        {location && (
+          <CurrentLocation locationData={location} dateData={date} />
+        )}
+      </div>
+    </div>
   );
 };
 

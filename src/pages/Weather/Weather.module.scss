@@ -1,0 +1,12 @@
+.weather_container {
+  max-width: 1500px;
+  padding: 20px;
+  margin: 0 auto;
+
+  .weather {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+  }
+}

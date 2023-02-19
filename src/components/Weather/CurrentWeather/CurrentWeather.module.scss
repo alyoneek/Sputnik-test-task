@@ -2,9 +2,14 @@
   padding: 50px;
   box-shadow: 1px 1px 7px #bdbdbd;
   border-radius: 20px;
-  max-width: 550px;
+  width: 550px;
   position: relative;
   overflow: hidden;
+  transition: 0.25s;
+
+  &:hover {
+    transform: scale(1.01);
+  }
 
   &:before {
     content: '';
@@ -26,6 +31,7 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 40px;
+    gap: 20px;
 
     .left_col {
       display: flex;
