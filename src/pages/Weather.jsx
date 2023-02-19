@@ -26,7 +26,7 @@ const Weather = () => {
   React.useEffect(() => {
     const fetchWeather = async () => {
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${locationCoords.lat}&lon=${locationCoords.lon}&appid=6fb7b9e3b3bb770125b23d4b54457037`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${locationCoords.lat}&lon=${locationCoords.lon}&units=metric&appid=6fb7b9e3b3bb770125b23d4b54457037`
       );
       setLocation({
         city: response.data.name,
@@ -38,6 +38,15 @@ const Weather = () => {
 
     locationCoords && fetchWeather();
   }, [locationCoords]);
+
+  // return (
+  //   <>
+  //     <div>Monday 27</div> <div>July 20</div>
+  //     <div>Time: {date.toLocaleTimeString()}</div>
+  //     <div>Date: {date.toDateString()}</div>
+  //     <div>Location: Tomsk</div>
+  //   </>
+  // );
 
   return weather && <CurrentWeather data={weather} />;
 };
