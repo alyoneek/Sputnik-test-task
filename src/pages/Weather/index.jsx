@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { ThemeContext } from '@/App';
+import { themeFromTime } from '@/utils/themeFromTime';
 import weatherApi, { CLIENT_ID } from '@/api/openWeather';
 import nasaApi from '@/api/nasa';
 import CurrentWeather from '@/components/Weather/CurrentWeather';
@@ -8,6 +10,7 @@ import NasaAPOD from '@/components/Weather/NasaAPOD';
 import styles from './Weather.module.scss';
 
 const Weather = () => {
+  const { setTheme } = React.useContext(ThemeContext);
   const [date, setDate] = React.useState(new Date());
   const [locationCoords, setLocationCoords] = React.useState(null);
   const [location, setLocation] = React.useState(null);
@@ -15,7 +18,11 @@ const Weather = () => {
   const [apod, setApod] = React.useState(null);
 
   React.useEffect(() => {
-    const timer = setInterval(() => setDate(new Date()), 1000);
+    const timer = setInterval(() => {
+      const date = new Date();
+      setDate(date);
+      setTheme(themeFromTime(date.getHours()));
+    }, 1000);
     return () => clearInterval(timer);
   });
 
