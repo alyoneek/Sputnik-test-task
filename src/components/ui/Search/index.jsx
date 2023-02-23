@@ -3,7 +3,7 @@ import { AiOutlineSearch, AiOutlineClose } from 'react-icons/ai';
 
 import styles from './Search.module.scss';
 
-import { SearchContext } from '@/layouts/RootLayout';
+import { SearchContext } from '@/layouts/RootLayoutWithSearch';
 
 const Search = () => {
   const { setSearchValue } = React.useContext(SearchContext);

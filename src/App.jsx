@@ -5,6 +5,7 @@ import { useTheme } from '@/hooks/useThemes';
 export const ThemeContext = React.createContext('');
 
 import RootLayout from '@/layouts/RootLayout';
+import RootLayoutWithSearch from '@/layouts/RootLayoutWithSearch';
 import Error from '@/pages/Error';
 import Gallery from '@/pages/Gallery';
 import Weather from '@/pages/Weather';
@@ -23,8 +24,14 @@ const router = createBrowserRouter([
         path: 'weather',
         element: <Weather />,
       },
+    ],
+  },
+  {
+    path: '/gallery',
+    element: <RootLayoutWithSearch />,
+    children: [
       {
-        path: 'gallery',
+        index: true,
         element: <Gallery />,
       },
     ],

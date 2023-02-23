@@ -1,7 +1,7 @@
 import React from 'react';
 
 import api from '@/api/unsplash';
-import { SearchContext } from '@/layouts/RootLayout';
+import { SearchContext } from '@/layouts/RootLayoutWithSearch';
 import styles from './Gallery.module.scss';
 import Placeholder from '@/components/Gallery/Placeholder';
 import FluidGridLayout from '@/layouts/FluidGridLayout';
