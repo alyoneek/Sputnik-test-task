@@ -1,3 +1,5 @@
+@use '@/styles/variables';
+
 .date_location {
   width: 600px;
   padding: 30px;
@@ -6,11 +8,6 @@
   background-color: #bdbdbd29;
   position: relative;
   overflow: hidden;
-  transition: 0.25s;
-
-  &:hover {
-    transform: scale(1.01);
-  }
 
   &:before {
     content: '';
@@ -21,9 +18,9 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://img.freepik.com/free-vector/cloud-background-pastel-paper-cut-style-vector_53876-135914.jpg');
+    background-image: url('@/assets/location-background.avif');
     background-size: cover;
-    opacity: 0.5;
+    opacity: 0.9;
   }
 
   .location {
@@ -59,5 +56,9 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    * {
+      color: variables.$main-text-color;
+    }
   }
 }

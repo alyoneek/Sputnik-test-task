@@ -2,7 +2,7 @@ const dayIntervals = {
   night: [0, 4],
   morning: [5, 9],
   day: [10, 16],
-  evening: [17, 0],
+  evening: [17, 23],
 };
 
 export const themeFromTime = (hours) => {

@@ -1,0 +1,27 @@
+/* morning theme*/
+:root[data-theme='morning'] {
+  --general-bg-color: white;
+  --general-text-color: #393636;
+  --weather-bg-image: url('@/assets/morning-weather-background.jpg');
+}
+
+/* day theme*/
+:root[data-theme='day'] {
+  --general-bg-color: white;
+  --general-text-color: #393636;
+  --weather-bg-image: url('@/assets/day-weather-background.jpg');
+}
+
+/* evening theme*/
+:root[data-theme='evening'] {
+  --general-bg-color: #858585;
+  --general-text-color: white;
+  --weather-bg-image: url('@/assets/evening-weather-background.jpg');
+}
+
+/* night theme*/
+:root[data-theme='night'] {
+  --general-bg-color: black;
+  --general-text-color: white;
+  --weather-bg-image: url('@/assets/night-weather-background.jpg');
+}

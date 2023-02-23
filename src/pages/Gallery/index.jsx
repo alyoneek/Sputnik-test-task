@@ -28,7 +28,6 @@ const Gallery = () => {
   }, []);
 
   React.useEffect(() => {
-    // search  = ''
     const fetchCollection = async () => {
       setIsLoading(true);
       try {

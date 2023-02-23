@@ -1,3 +1,5 @@
+@use '@/styles/variables';
+
 .header {
   display: flex;
   align-items: center;
@@ -5,9 +7,13 @@
   padding: 10px 30px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  transition: all 0.5s;
+
   &:hover {
     box-shadow: -4px -3px 20px #cfcfcf;
+    transition: all 0.5s;
   }
+
   &_logo {
     display: flex;
     gap: 10px;
@@ -22,10 +28,12 @@
   .nav_items {
     display: flex;
     gap: 30px;
+
     a {
       font-size: 1.05rem;
       position: relative;
-      transition: cubic-bezier(0.77, 0, 0.18, 1) 0.5s;
+      transition: cubic-bezier(0.77, 0, 0.18, 1) 0.3s;
+
       &:after {
         content: '';
         display: block;
@@ -35,8 +43,8 @@
         left: 50%;
         height: 3px;
         border-radius: 50px;
-        background: #d7ad4f;
-        transition: cubic-bezier(0.77, 0, 0.18, 1) 0.5s;
+        background: variables.$elements-color;
+        transition: cubic-bezier(0.77, 0, 0.18, 1) 0.3s;
       }
 
       @mixin displaySelection {

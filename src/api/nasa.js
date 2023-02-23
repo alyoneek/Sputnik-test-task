@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-//export const CLIENT_ID = '6fb7b9e3b3bb770125b23d4b54457037';
+export const API_KEY = 'jj1hS2wLjBSvdGxKDz6MIsCrMeKyXPrCOWs4ylwz';
 
 export default axios.create({
   baseURL: 'https://api.nasa.gov',

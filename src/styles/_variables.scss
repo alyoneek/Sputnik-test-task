@@ -1,23 +1,2 @@
-/* morning theme*/
-:root[data-theme='morning'] {
-  --general-bg-color: blue;
-  --general-text-color: #393636;
-}
-
-/* day theme*/
-:root[data-theme='day'] {
-  --general-bg-color: blue;
-  --general-text-color: white;
-}
-
-/* evening theme*/
-:root[data-theme='evening'] {
-  --general-bg-color: blue;
-  --general-text-color: white;
-}
-
-/* night theme*/
-:root[data-theme='night'] {
-  --general-bg-color: black;
-  --general-text-color: white;
-}
+$elements-color: #d7ad4f;
+$main-text-color: #393636;

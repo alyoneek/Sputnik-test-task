@@ -3,14 +3,14 @@ import React from 'react';
 import { ThemeContext } from '@/App';
 import { themeFromTime } from '@/utils/themeFromTime';
 import weatherApi, { CLIENT_ID } from '@/api/openWeather';
-import nasaApi from '@/api/nasa';
+import nasaApi, { API_KEY } from '@/api/nasa';
 import CurrentWeather from '@/components/Weather/CurrentWeather';
 import CurrentLocation from '@/components/Weather/CurrentLocation';
 import NasaAPOD from '@/components/Weather/NasaAPOD';
 import styles from './Weather.module.scss';
 
 const Weather = () => {
-  const { setTheme } = React.useContext(ThemeContext);
+  const { theme, setTheme } = React.useContext(ThemeContext);
   const [date, setDate] = React.useState(new Date());
   const [locationCoords, setLocationCoords] = React.useState(null);
   const [location, setLocation] = React.useState(null);
@@ -28,9 +28,7 @@ const Weather = () => {
 
   React.useEffect(() => {
     const fetchApod = async () => {
-      const response = await nasaApi.get(
-        `/planetary/apod?api_key=jj1hS2wLjBSvdGxKDz6MIsCrMeKyXPrCOWs4ylwz`
-      );
+      const response = await nasaApi.get(`/planetary/apod?api_key=${API_KEY}`);
       setApod(response.data);
     };
 
@@ -59,15 +57,24 @@ const Weather = () => {
   }, [locationCoords]);
 
   return (
-    <div className={styles.weather_container}>
-      <div className={styles.weather}>
-        {weather && <CurrentWeather data={weather} />}
-        {location && (
-          <CurrentLocation locationData={location} dateData={date} />
-        )}
+    <>
+      {theme === 'night' && (
+        <>
+          <div className={styles.stars}></div>
+          <div className={styles.twinkling}></div>{' '}
+        </>
+      )}
+      <div className={styles.clouds}></div>
+      <div className={styles.weather_container}>
+        <div className={styles.weather}>
+          {weather && <CurrentWeather data={weather} />}
+          {location && (
+            <CurrentLocation locationData={location} dateData={date} />
+          )}
+        </div>
+        {apod && <NasaAPOD data={apod} />}
       </div>
-      {apod && <NasaAPOD data={apod} />}
-    </div>
+    </>
   );
 };
 

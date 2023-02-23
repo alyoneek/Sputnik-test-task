@@ -1,4 +1,4 @@
-@use './variables';
+@use './themes';
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap');
 
 * {
@@ -9,10 +9,16 @@
 }
 
 body,
-html,
-#root {
+html {
   font-family: 'Josefin Sans', sans-serif;
   height: 100%;
+}
+
+#root {
+  @extend html;
+  height: max-content;
+  min-height: 100%;
+  position: relative;
 }
 
 body {
