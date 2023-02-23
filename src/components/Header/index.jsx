@@ -3,18 +3,20 @@ import { NavLink } from 'react-router-dom';
 
 import Search from '@/components/ui/Search';
 import styles from './Header.module.scss';
-import WeatherLogo from '@/assets/weather-logo.png';
+import Logo from '@/assets/logo.png';
 
-const Header = () => {
+const Header = ({ hasSearch }) => {
   return (
     <div className={styles.header}>
       <NavLink to='/' className={styles.header_logo}>
-        <img src={WeatherLogo} alt='logo' />
-        Start of the day app
+        <img src={Logo} alt='logo' />
+        <span>Start of the day app</span>
       </NavLink>
-      <div className={styles.search_input}>
-        <Search />
-      </div>
+      {hasSearch && (
+        <div className={styles.search_input}>
+          <Search />
+        </div>
+      )}
       <div className={styles.nav_items}>
         <NavLink to='/'>Weather</NavLink>
         <NavLink to='/gallery'>Gallery</NavLink>

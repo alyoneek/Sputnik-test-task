@@ -13,7 +13,7 @@ const Placeholder = ({ data }) => {
       <div className={styles.placeholder_title}>
         <h1>Gallery</h1>
         <p>Search the pictures of a collection by its id.</p>
-        <p>More text.</p>
+        <p>Type the id in the search input.</p>
       </div>
     </div>
   );

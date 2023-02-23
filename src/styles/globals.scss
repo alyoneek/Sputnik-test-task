@@ -1,0 +1,30 @@
+@use './themes';
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--general-text-color);
+}
+
+body,
+html {
+  font-family: 'Josefin Sans', sans-serif;
+  height: 100%;
+}
+
+#root {
+  @extend html;
+  height: max-content;
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  background: var(--general-bg-color);
+}
+
+a {
+  text-decoration: none;
+}

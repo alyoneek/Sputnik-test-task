@@ -1,13 +1,16 @@
 .error_block {
-  height: 100%;
+  width: 100%;
+  height: calc(100vh - 70px);
   display: flex;
   flex-direction: column;
   gap: 40px;
   align-items: center;
   justify-content: center;
+
   .error_message {
     font-size: 1.1rem;
   }
+
   .error_status {
     opacity: 0.5;
     font-style: italic;
