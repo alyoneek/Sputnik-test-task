@@ -10,7 +10,7 @@ const Header = ({ hasSearch }) => {
     <div className={styles.header}>
       <NavLink to='/' className={styles.header_logo}>
         <img src={Logo} alt='logo' />
-        Start of the day app
+        <span>Start of the day app</span>
       </NavLink>
       {hasSearch && (
         <div className={styles.search_input}>

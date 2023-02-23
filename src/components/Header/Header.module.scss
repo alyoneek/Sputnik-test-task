@@ -62,3 +62,25 @@
     }
   }
 }
+
+@media screen and (max-width: 830px) {
+  .header {
+    &_logo {
+      span {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .header {
+    flex-wrap: wrap;
+
+    .search_input {
+      order: 3;
+      width: 100%;
+      margin-top: 5px;
+    }
+  }
+}

@@ -113,3 +113,30 @@
     }
   }
 }
+
+@media screen and (max-width: 1250px) {
+  .weather {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .weather {
+    .main_features {
+      flex-direction: column;
+      align-items: start;
+
+      .left_col {
+        border-right: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 410) {
+  .weather {
+    .extended_features {
+      flex-direction: column;
+    }
+  }
+}

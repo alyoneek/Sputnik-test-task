@@ -16,6 +16,12 @@
   }
 }
 
+@media screen and (max-width: 1250px) {
+  .weather {
+    flex-direction: column;
+  }
+}
+
 @keyframes move-twink-back {
   from {
     background-position: 0 0;
